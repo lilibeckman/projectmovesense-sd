@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+    <link rel="stylesheet" href="sobre.css">
+    <link rel="icon" type="image/x-icon" href="sobre-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="title"  class="animated-title">
+            <h1>Move</h1>
+            <h1>Sense</h1>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contatos.html">Contatos</a></li>
+            <li><a href="equipe.html" id="criar-conta">Equipe</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <h1>Sobre o Projeto MoveSense</h1>
+        <p>Este projeto consiste em uma campainha inteligente que utiliza um sensor de movimento para detectar a presença de alguém e acionar um som de campainha. O sensor de movimento é conectado ao Arduino, que é responsável por processar os dados do sensor e controlar o funcionamento da campainha. </p>
+
+        <h1>Imagem do MoveSense</h1>
+        <img src="movesense.jpeg" alt="" class="movesense">
+
+        <h1>Como funciona?</h1>
+        <p>Quando alguém se aproxima da entrada onde a campainha está instalada, o sensor de movimento detecta o movimento e envia um sinal para o Arduino. O Arduino então ativa um dispositivo sonoro, como um buzzer ou um alto-falante, reproduzindo o som de uma campainha.</p>
+
+        <h1>Objetivos</h1>
+        <p>Este projeto de campainha com sensor de movimento serve para automatizar o processo de recepção de visitantes em residências ou ambientes comerciais. Ao detectar o movimento de alguém próximo à entrada, a campainha é acionada automaticamente, eliminando a necessidade de intervenção manual. Isso proporciona conveniência aos moradores e visitantes, garantindo que sejam alertados da presença de alguém na entrada. Além disso, pode ser útil para fins de segurança, permitindo que os residentes saibam quando alguém se aproxima da entrada, mesmo quando estão em outra parte da casa ou do escritório. Em resumo, o projeto visa melhorar a experiência de receber visitantes, tornando-a mais eficiente e automatizada. </p>
+
+        <h1>Benefícios</h1>
+        <p>- Facilita a detecção de visitantes ou entregas na entrada da casa ou escritório</p>
+        <p>- Oferece uma solução simples e econômica para criar uma campainha inteligente e personalizada</p>
+        <p>- Pode ser integrado a outros sistemas domésticos inteligentes para automatizar ainda mais o ambiente</p>
+
+        <h1>Materiais utilizados</h1>
+        <p>Materiais necessários: 
+            <p>- Arduino </p>
+            <p>- Sensor de movimento PIR </p>
+            <p>- Buzzer (para o alarme sonoro) </p>
+            <p>- 2 LED </p>
+            <p>- Resistor de 300 Ω </p>
+            <p>- ⁠Resistor de 10 kΩ </p>
+            <p>- 11 Jumpers </p>
+            <p>- Protoboard </p>
+            <p> - Fonte de alimentação (cabo USB para o Arduino)</p> 
+            
+        <h1>Como foi feita a montagem?</h1>
+        <p>- Conectamos todos os componentes conforme o diagrama do projeto</p>
+        <p>- Carregamos o código no Arduino usando o software Arduino IDE</p>
+        <p>- Após o upload do código, o alarme estará pronto para detectar movimento e acionar o buzzer e o LED</p>
+
+        <h1>Código do Projeto</h1>
+        <p>const int pinoPIR = 9; //PINO DIGITAL UTILIZADO PELO SENSOR DE PRESENÇA</p>
+        <p>const int pinoLED = 7; //PINO DIGITAL UTILIZADO PELO LED</p>
+        <p>const int buzzer = 10; //Buzzer</p>
+        <p>void setup(){</p>
+        <p>  Serial.begin(9600);</p>
+        <p>  pinMode(pinoLED, OUTPUT); //DEFINE O PINO COMO SAÍDA        </p>
+        <p>  pinMode(pinoPIR, INPUT); //DEFINE O PINO COMO ENTRADA</p>
+        <p>}</p>
+        <p>void loop(){</p>
+        <p>  delay(1500);</p>
+        <p> if(digitalRead(pinoPIR) == HIGH){ //SE A LEITURA DO PINO FOR IGUAL A HIGH, FAZ</p>
+        <p>    Serial.println(digitalRead(pinoPIR)); //ACENDE O LED</p>
+        <p>    Serial.print("HIGH");</p>
+        <p>    tone(buzzer,700);</p>
+        <p> }else{ //SENÃO, FAZ</p>
+        <p> Serial.println(digitalRead(pinoPIR));</p>
+        <p>  digitalWrite(pinoLED, LOW); //APAGA O LED</p>
+        <p>  noTone(buzzer);</p>
+        <p> }</p>
+        <p>}</p>
+
+        
+
+    </main>
+</html>
